@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Yarana</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins';scroll-behavior:smooth;}
+body{background:#000;color:#fff;overflow-x:hidden;}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 50px;
+background:rgba(0,0,0,0.8);
+position:fixed;
+width:100%;
+z-index:1000;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover fixed;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-size:70px;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px orange;}
+to{text-shadow:0 0 40px red;}
+}
+
+/* SECTION */
+section{padding:100px 20px;text-align:center;}
+
+/* MENU */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#111;
+padding:20px;
+border-radius:15px;
+transition:0.5s;
+}
+
+.card:hover{
+transform:scale(1.1);
+background:orange;
+color:black;
+}
+
+/* SLIDER */
+.slider{
+display:flex;
+overflow:hidden;
+}
+
+.slider img{
+width:300px;
+margin:10px;
+border-radius:10px;
+animation:slide 20s linear infinite;
+}
+
+@keyframes slide{
+0%{transform:translateX(0);}
+100%{transform:translateX(-1000px);}
+}
+
+/* FLOAT BUTTONS */
+.call,.whatsapp{
+position:fixed;
+right:20px;
+padding:15px;
+border-radius:50px;
+color:white;
+text-decoration:none;
+animation:pulse 2s infinite;
+}
+
+.call{bottom:90px;background:red;}
+.whatsapp{bottom:20px;background:green;}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(255,255,255,0.7);}
+70%{box-shadow:0 0 0 20px transparent;}
+100%{box-shadow:0 0 0 0 transparent;}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h1>Hotel Yarana</h1>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<div>
+<h1 id="typing"></h1>
+<p>Best Veg & Non-Veg Restaurant</p>
+</div>
+</div>
+
+<!-- MENU -->
+<section data-aos="fade-up">
+<h2>🍽️ Menu</h2>
+<div class="grid">
+<div class="card">Chicken Biryani</div>
+<div class="card">Mutton Curry</div>
+<div class="card">Paneer Butter Masala</div>
+<div class="card">Tandoori Chicken</div>
+</div>
+</section>
+
+<!-- SPEC -->
+<section data-aos="zoom-in">
+<h2>🏨 Facilities</h2>
+<p>AC Hall | Family Seating | Parking | Fast Service</p>
+
+<h3>⏰ Timing</h3>
+<p>10:00 AM - 11:30 PM</p>
+</section>
+
+<!-- GALLERY -->
+<section data-aos="fade-left">
+<h2>📸 Gallery</h2>
+<div class="slider">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<img src="https://images.unsplash.com/photo-1546069901-eacef0df6022">
+</div>
+</section>
+
+<!-- MAP -->
+<section data-aos="fade-right">
+<h2>📍 Location</h2>
+<iframe src="https://maps.google.com/maps?q=Solapur&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300"></iframe>
+</section>
+
+<!-- BUTTONS -->
+<a href="tel:918600738705" class="call">📞 Call</a>
+<a href="https://wa.me/918600738705?text=Hello%20Hotel%20Yarana" class="whatsapp">💬 WhatsApp</a>
+
+<!-- AOS SCRIPT -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init();
+
+// typing effect
+let text="🔥 Hotel Yarana 🔥";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,100);
+}
+}
+type();
+</script>
+
+</body>
+</html>
